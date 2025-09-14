@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>HBD</title>
+  
+  <!-- Tailwind via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Animate.css -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+</head>
+<body
+  style="background-image: url(https://i.pinimg.com/736x/ef/1a/05/ef1a056ac603da6fe7e76dfcf2c2f53e.jpg); background-size: cover; background-position: center;"
+  class="flex justify-center items-center h-screen p-4"
+>
+
+  <!-- HALAMAN UCAPAN -->
+  <div
+    class="bg-white border-4 border-gray-300 px-6 py-8 shadow-lg shadow-pink-300 rounded-xl text-center animate__animated animate__bounceIn w-full max-w-xs"
+    id="kartu"
+  >
+    <h1 class="text-3xl font-bold">Happy Birthday</h1>
+    <h2 class="text-2xl text-pink-600 font-bold animate__animated animate__pulse animate__infinite">
+      Tiara Zaida Asya F.
+    </h2>
+    <button
+      class="p-2 bg-pink-600 text-white rounded mt-5 hover:bg-pink-900 transition ease-in w-full font-bold animate__animated animate__delay-1s animate__tada"
+      onclick="ubahkartu()"
+    >
+      Klik Disini Sayang
+    </button>
+  </div>
+
+  <!-- HALAMAN ALBUM FOTO (HIDDEN DEFAULT) -->
+  <div id="album" class="hidden flex-col items-center justify-center text-center w-full h-full bg-white bg-opacity-90 absolute top-0 left-0 p-6 overflow-y-auto">
+    <h1 class="text-3xl font-bold text-pink-600 mb-6 animate__animated animate__fadeInDown">📸 Album </h1>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 animate__animated animate__zoomIn">
+      <!-- FOTO 1 -->
+      <div class="border-4 border-pink-300 rounded-xl overflow-hidden shadow-lg p-2 bg-white">
+        <img src="foto1.jpeg" alt="Foto 1" class="rounded w-full object-cover">
+
+      </div>
+      <!-- FOTO 2 -->
+      <div class="border-4 border-pink-300 rounded-xl overflow-hidden shadow-lg p-2 bg-white">
+        <img src="foto2.jpeg" alt="Foto 2" class="rounded w-full object-cover">
+
+      </div>
+      <!-- FOTO 3 -->
+      <div class="border-4 border-pink-300 rounded-xl overflow-hidden shadow-lg p-2 bg-white">
+        <img src="foto3.jpeg" alt="Foto 3" class="rounded w-full object-cover">
+    
+      </div>
+      <!-- FOTO 4 -->
+      <div class="border-4 border-pink-300 rounded-xl overflow-hidden shadow-lg p-2 bg-white">
+        <img src="foto4.jpeg" alt="Foto 4" class="rounded w-full object-cover">
+
+      </div>
+    </div>
+
+    <button
+      class="mt-6 p-3 bg-gray-700 text-white rounded hover:bg-gray-900 transition font-semibold"
+      onclick="kembaliKeUcapan()"
+    >
+      Kembali ke Ucapan
+    </button>
+  </div>
+
+  <!-- Confetti -->
+  <script src="https://cdn.jsdelivr.net/npm/@tsparticles/confetti@3.0.3/tsparticles.confetti.bundle.min.js"></script>
+  <script>
+    confetti({
+      particleCount: 100,
+      spread: 70,
+      origin: { y: 0.6 },
+    });
+
+    function ubahkartu() {
+      const kartu = document.getElementById("kartu");
+      kartu.innerHTML = `
+        <h1 class="text-base font-medium animate__animated animate__zoomIn text-gray-800">
+          Selamat ulang tahun yang ke-14 tahun, Tiara. <br><br>
+          Semoga dengan bertambahnya usiamu, kamu bisa menjadi pribadi yang lebih baik, lebih bijak, dan selalu bersyukur atas segala nikmat Allah. <br><br>
+          Terima kasih karena sudah menjadi sosok wanita yang selalu ada untukku. Meski kita hanya LDR, hubungan ini sangat berarti bagiku. <br><br>
+          Maaf ya kalau hanya ini yang bisa aku berikan untukmu. Tapi semoga kamu bisa melihat ketulusan dari isinya, bukan bentuknya. Hehe 🥰
+        </h1>
+
+        <h2 class="mt-3 animate__animated animate__fadeIn">-Dari: Baiqmmfariz-</h2>
+
+        <button
+          class="p-2 bg-gray-600 text-white rounded mt-5 hover:bg-gray-900 transition ease-in w-full font-bold animate__animated animate__delay-1s animate__tada"
+          onclick="refresh()"
+        >
+          Kembali
+        </button>
+
+        <button
+          class="p-2 bg-pink-500 text-white rounded mt-3 hover:bg-pink-800 transition ease-in w-full font-bold"
+          onclick="tampilkanAlbum()"
+        >
+          Foto Kamuh🤭📷
+        </button>
+      `;
+    }
+
+    function refresh() {
+      location.reload();
+    }
+
+    function tampilkanAlbum() {
+      document.getElementById("kartu").classList.add("hidden");
+      document.getElementById("album").classList.remove("hidden");
+    }
+
+    function kembaliKeUcapan() {
+      document.getElementById("album").classList.add("hidden");
+      document.getElementById("kartu").classList.remove("hidden");
+    }
+  </script>
+</body>
+</html>
